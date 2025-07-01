@@ -15,70 +15,26 @@ import { FeedBuilder } from '@xcommerceweb/google-merchant-feed'
 import { defineConfig, loadEnv } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import URLS from './public/data/sitemap/urls.json'
-import PLANOS from './src/data/planos/planos.json'
+import CONTROLE_PORTIFOLIO from './src/data/planos/ControlePortifolioEsim.json'
+import { formatedPrice } from './src/helpers/formatedPrice.ts'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   process.env = { ...process.env, ...env }
 
+  const VERSION_MARK_CONFIG = {
+    ifGitSHA: false,
+    ifShortSHA: false,
+    ifMeta: false,
+    ifLog: false,
+    ifExport: true,
+    ifGlobal: true,
+  }
+
   return {
     plugins: [
-      vitePluginVersionMark({
-        name: env.VITE_APP_WEB_TITLE,
-        outputFile: () => ({
-          path: 'googlemerchant.xml',
-          content: (() => {
-            const feedBuilder = new FeedBuilder();
-            // https://github.com/xcommerceweb/google-merchant-feed
-            feedBuilder.withTitle('ESaúde Assist')
-            feedBuilder.withLink('https://esaude.online')
-            feedBuilder.withDescription('Cuide da sua saúde sem sair de casa. Acesse seu histórico de consultas e exames, utilize nossa plataforma de telemedicina e acompanhe todas as suas informações de saúde conosco.')
-
-            for (const {
-              sku,
-              title,
-              description,
-              images,
-              price,
-            } of Object.values(PLANOS)) {
-              feedBuilder.withProduct({
-                id: sku,
-                title,
-                description,
-                link: `https://esaude.online/plano/${sku}`,
-                imageLink: images[0],
-                additionalImageLinks: [images[1]],
-                condition: 'new',
-                availability: 'in_stock',
-                price: {
-                  currency: 'BRL',
-                  value: price / 100,
-                },
-                // https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt
-                googleProductCategory: '491',
-                productType: 'Página inicial > Planos de saúde',
-                taxCategory: 'Plano de Saúde',
-                customLabels: ['Plano de Saúde', 'Plano de Saúde Familiar'],
-                identifierExists: 'no',
-                brand: 'esaudeassist',
-                ageGroup: 'adult',
-                externalSellerId: 'esaudeassist',
-              });
-            }
-
-            return feedBuilder.buildXml()
-          })(),
-        }),
-        ifGitSHA: false,
-        ifShortSHA: false,
-        ifMeta: false,
-        ifLog: false,
-        ifExport: true,
-        ifGlobal: true,
-      }),
-
       Sitemap({
-        hostname: 'https://esaude.online',
+        hostname: 'https://esim.meuplanotim.com.br',
         dynamicRoutes: (() => {
           const SITEMAP_URLS = []
 
@@ -88,6 +44,91 @@ export default defineConfig(({ mode }) => {
 
           return SITEMAP_URLS;
         })(),
+      }),
+
+      vitePluginVersionMark({
+        name: env.VITE_APP_WEB_TITLE,
+        outputFile: () => ({
+          path: 'googlemerchant.xml',
+          content: (() => {
+            const feedBuilder = new FeedBuilder();
+            // https://github.com/xcommerceweb/google-merchant-feed
+            feedBuilder.withTitle(env.VITE_APP_WEB_TITLE)
+            feedBuilder.withLink('https://esim.meuplanotim.com.br')
+            feedBuilder.withDescription(env.VITE_APP_WEB_DESCRIPTION)
+
+            for (const {
+              sku,
+              name,
+              description,
+              price,
+            } of Object.values(CONTROLE_PORTIFOLIO)) {
+              feedBuilder.withProduct({
+                id: sku,
+                title: name,
+                description: description.rodape,
+                link: `https://esim.meuplanotim.com.br`,
+                // imageLink: images[0],
+                // additionalImageLinks: [images[1]],
+                condition: 'new',
+                availability: 'in_stock',
+                price: {
+                  currency: 'BRL',
+                  value: Number(formatedPrice((price as { fidelity: number }).fidelity, 'float')),
+                },
+                // https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt
+                googleProductCategory: '491',
+                productType: 'Página inicial > Planos TIM eSIM',
+                taxCategory: 'Planos TIM eSIM',
+                customLabels: ['Planos TIM eSIM', 'Planos TIM', 'TIM Controle', 'TIM Black', 'TIM Black Família'],
+                identifierExists: 'no',
+                brand: 'timesim',
+                ageGroup: 'adult',
+                externalSellerId: 'timesim',
+              });
+            }
+
+            return feedBuilder.buildXml()
+          })(),
+        }),
+        ...VERSION_MARK_CONFIG,
+      }),
+
+      vitePluginVersionMark({
+        name: 'manifest.json',
+        outputFile: version => ({
+          path: 'manifest.json',
+          content: JSON.stringify({
+            name: env.VITE_APP_WEB_TITLE,
+            short_name: env.VITE_APP_WEB_TITLE,
+            theme_color: '#0026D9',
+            background_color: '#0026D9',
+            start_url: '/',
+            display: 'standalone',
+            lang: 'pt-BR',
+            id: version,
+            description: env.VITE_APP_WEB_DESCRIPTION,
+            orientation: 'portrait',
+          }),
+        }),
+        ...VERSION_MARK_CONFIG,
+      }),
+
+      vitePluginVersionMark({
+        name: 'robots.txt',
+        outputFile: () => ({
+          path: 'robots.txt',
+          content: `User-agent: *
+            Allow: /
+            Sitemap: https://esim.meuplanotim.com.br/sitemap.xml
+            Sitemap: https://esim.meuplanotim.com.br/googlemerchant.xml
+            Sitemap: https://esim.meuplanotim.com.br/manifest.json
+            Sitemap: https://esim.meuplanotim.com.br/robots.txt
+            Sitemap: https://esim.meuplanotim.com.br/googlemerchant.xml
+            Sitemap: https://esim.meuplanotim.com.br/sitemap.xml
+          `,
+        }),
+        ...VERSION_MARK_CONFIG,
       }),
 
       VueRouter({
@@ -170,6 +211,8 @@ export default defineConfig(({ mode }) => {
 
     server: {
       port: 8080,
+      strictPort: true,
+      open: true,
     },
 
     css: {

@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "deploy:production": "firebase deploy --only hosting:production",
+    "deploy:preview": "firebase hosting:channel:deploy beta"
   },
   "dependencies": {
     "@fontsource/roboto": "5.2.5",

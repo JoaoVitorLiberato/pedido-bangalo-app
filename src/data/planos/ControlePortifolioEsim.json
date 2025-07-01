@@ -1,0 +1,971 @@
+{
+  "vtxtimdigitalcontroleapp": {
+    "disabled": ["card"],
+    "sku": "vtxtimdigitalcontroleapp",
+    "id": {
+      "base": "1-1QUUZF0",
+      "fidelity": "1-1QUUZF0",
+      "// idFidelityAttackDefence": {
+        "attack": "1-1QUUZF0",
+        "defense": "1-1QUUZF0"
+      }
+    },
+    "name": "TIM Controle",
+    "segment": "controle",
+    "price": {
+      "base": 8299,
+      "fidelity": 5499,
+      "// priceFidelityAttackDefence": {
+        "attack": 5499,
+        "defense": 5499
+      },
+      "// priceBaseAttackDefence": {
+        "attack": 8299,
+        "defense": 8299
+      }
+    },
+    "franchise": {
+      "total": 27000,
+      "base": 15000,
+      "bonus": {
+        "pormesporumano": 6000,
+        "especial": 6000
+      }
+    },
+    "description": {
+      "ligacao": "Ilimitadas para todas as operadoras",
+      "sms": "Ilimitado para todas as operadoras",
+      "ligacaosms": "Ligações e SMS Ilimitados",
+      "roaming": "Roaming nacional",
+      "hero": "5GB Franquia + 4GB bônus + 4GB na portabilidade",
+      "rodape": "5GB Franquia + 4GB bônus extra + 4GB bônus extra trazendo seu número para a TIM"
+    },
+    "vas": {
+      "inclusos": {
+        "title": "Apps inclusos",
+        "items": [
+          {
+            "name": "WhatsApp",
+            "title": "WhatsApp Incluso",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fnew-icon-whatsapp.png"
+          }
+        ]
+      },
+      "escolha": {
+        "items": [
+          {
+            "name": "Deezer Now",
+            "icon": "/img/logos/deezer-now.png"
+          },
+          {
+            "name": "Paramount +",
+            "icon": "/img/logos/paramount-plus.png"
+          },
+          {
+            "name": "Prime Video Versão Celular",
+            "icon": "/img/logos/prime-video-mobile.png"
+          }
+        ]
+      }
+    },
+    "details": {
+      "beneficios": {
+        "name": "Benefícios",
+        "items": [
+          {
+            "name": "Aya Ensinah Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-ensinah-premium-benefit.png"
+          },
+          {
+            "name": "Banca Jornais II",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/banca-jornais-benefit.png"
+          },
+          {
+            "name": "EXA Segurança Light",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-seguranca-light-benefit.png"
+          },
+          {
+            "name": "Fluid Light",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/fluid-light-benefit.png"
+          }
+        ]
+      },
+      "detalhes": {
+        "name": "Detalhes",
+        "items": [
+          {
+            "name": "Mapa do Brasil",
+            "title": "<strong class='font-weight-black'>Ligações ilimitadas</strong> para todas as perguntas usando o código 41",
+            "icon": "/img/logos/plan-details/brasil-icon.png"
+          },
+          {
+            "name": "SMS Ilimitado",
+            "title": "<strong class='font-weight-black'>SMS ilimitado</strong> para todas as operadoras usando o código 41",
+            "icon": "/img/logos/plan-details/sms-icon.png"
+          }
+        ]
+      },
+      "regulamento": {
+        "name": "Regulamentos",
+        "content": {
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-TIM-Controle-12.05.2025-a-26.05-PRICE-UP.pdf"
+          },
+          "bonusfidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Desconto-TIM-Controle-12-Meses-31.05.2025-PUP.pdf"
+          },
+          "bonuspromo": {
+            "name": "Regulamento Bônus Promo",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Digital-12-ate-30.05.25.pdf"
+          },
+          "bonusespecial": {
+            "name": "Regulamento Bônus especial",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Especial-Digital-12-ate-30.05.pdf"
+          }
+        }
+      }
+    }
+  },
+  "vtxtimdigitalcontrole": {
+    "spotlight": true,
+    "sku": "vtxtimdigitalcontrole",
+    "id": {
+      "base": "1-1QUUZF0",
+      "fidelity": "1-1QUUZF0",
+      "// idFidelityAttackDefence": {
+        "attack": "1-1QUUZF0",
+        "defense": "1-1QUUZF0"
+      }
+    },
+    "name": "TIM Controle 1.0",
+    "segment": "controle",
+    "price": {
+      "base": 8899,
+      "fidelity": 5499,
+      "// priceFidelityAttackDefence": {
+        "attack": 5499,
+        "defense": 5499
+      },
+      "// priceBaseAttackDefence": {
+        "attack": 8899,
+        "defense": 8899
+      }
+    },
+    "franchise": {
+      "total": 29000,
+      "base": 15000,
+      "bonus": {
+        "pormesporumano": 10000
+      }
+    },
+    "description": {
+      "ligacao": "Ilimitadas para todas as operadoras",
+      "sms": "Ilimitado para todas as operadoras",
+      "ligacaosms": "Ligações e SMS Ilimitados",
+      "roaming": "Roaming nacional",
+      "hero": "5GB Franquia + 4GB bônus + 4GB na portabilidade",
+      "rodape": "5GB Franquia + 4GB bônus extra + 4GB bônus extra trazendo seu número para a TIM"
+    },
+    "vas": {
+      "inclusos": {
+        "title": "Apps inclusos",
+        "items": [
+          {
+            "name": "WhatsApp",
+            "title": "WhatsApp Incluso",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fnew-icon-whatsapp.png"
+          }
+        ]
+      },
+      "escolha": {
+        "items": [
+          {
+            "name": "Deezer Now",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/deezer-now.png"
+          },
+          {
+            "name": "Paramount +",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/paramont-plus.png"
+          },
+          {
+            "name": "Prime Video Versão Celular",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/prime-video-mobile.png"
+          }
+        ]
+      }
+    },
+    "details": {
+      "beneficios": {
+        "name": "Benefícios",
+        "items": [
+          {
+            "name": "Aya Books",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-books-benefit.png"
+          },
+          {
+            "name": "Aya Ensinah Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-ensinah-premium-benefit.png"
+          },
+          {
+            "name": "Bancah Jornais II",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/banca-jornais-benefit.png"
+          },
+          {
+            "name": "EXA Segurança",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-seguranca-light-benefit.png"
+          },
+          {
+            "name": "Fluid Stand",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/fluid-light-benefit.png"
+          }
+        ]
+      },
+      "detalhes": {
+        "name": "Detalhes",
+        "items": [
+          {
+            "name": "Mapa do Brasil",
+            "title": "<strong class='font-weight-black'>Ligações ilimitadas</strong> para todas as perguntas usando o código 41",
+            "icon": "/img/logos/plan-details/brasil-icon.png"
+          },
+          {
+            "name": "SMS Ilimitado",
+            "title": "<strong class='font-weight-black'>SMS ilimitado</strong> para todas as operadoras usando o código 41",
+            "icon": "/img/logos/plan-details/sms-icon.png"
+          }
+        ]
+      },
+      "regulamento": {
+        "name": "Regulamentos",
+        "content": {
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/tim-digital-varejo-junho/tim-controle-1-0-30-06-2025.pdf"
+          },
+          "bonusfidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/tim-digital-varejo-junho/regulamento-desconto-tim-controle-12-meses-30-06-2025.pdf"
+          },
+          "bonuspromo": {
+            "name": "Regulamento Bônus Promo",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Digital-12-ate-30.05.25.pdf"
+          },
+          "bonusespecial": {
+            "name": "Regulamento Bônus especial",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Especial-Digital-12-ate-30.05.pdf"
+          }
+        }
+      }
+    }
+  },
+  "vtxtimdigitalcontroleplus": {
+    "spotlight": true,
+    "sku": "vtxtimdigitalcontroleplus",
+    "id": {
+      "base": "1-1QUUZF8",
+      "fidelity": "1-1QUUZF8",
+      "// idFidelityAttackDefence": {
+        "attack": "1-1QUUZF8",
+        "defense": "1-1QUUZF8"
+      }
+    },
+    "name": "TIM Controle Plus 1.0",
+    "segment": "controle",
+    "price": {
+      "base": 10299,
+      "fidelity": 6499,
+      "// priceFidelityAttackDefence": {
+        "attack": 6499,
+        "defense": 6499
+      },
+      "// priceBaseAttackDefence": {
+        "attack": 10299,
+        "defense": 10299
+      }
+    },
+    "franchise": {
+      "total": 35000,
+      "base": 20000,
+      "bonus": {
+        "redessociais": 5000,
+        "pormesporumano": 6000
+      }
+    },
+    "description": {
+      "ligacao": "Ilimitadas para todas as operadoras",
+      "sms": "Ilimitado para todas as operadoras",
+      "roaming": "Roaming nacional",
+      "hero": "6GB Franquia + 4GB bônus + 4GB na portabilidade",
+      "rodape": "6GB Franquia + 4GB bônus extra + 4GB bônus extra trazendo seu número para a TIM",
+      "detalhes-exclusivos": "5GB exclusivos para Facebook, Instagram e X"
+    },
+    "vas": {
+      "inclusos": {
+        "title": "Apps inclusos",
+        "items": [
+          {
+            "name": "WhatsApp",
+            "title": "WhatsApp Incluso",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fnew-icon-whatsapp.png"
+          }
+        ]
+      },
+      "exclusivos": {
+        "title": "Apps Exclusivos",
+        "items": [
+          {
+            "name": "Instagram",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fnew-icon-instagram.png"
+          },
+          {
+            "name": "Facebook",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Ffacebook.png"
+          },
+          {
+            "name": "Twitter",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fx-black.png"
+          }
+        ]
+      },
+      "escolha": {
+        "items": [
+          {
+            "name": "Deezer Now",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/deezer-now.png"
+          },
+          {
+            "name": "Paramount +",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/paramont-plus.png"
+          },
+          {
+            "name": "Prime Video Versão Celular",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/prime-video-mobile.png"
+          }
+        ]
+      },
+      "outros": {
+        "items": [
+          {
+            "name": "Aya Books + Aya Ensinah Premium"
+          },
+          {
+            "name": "Bancah Premium + Jornais"
+          },
+          {
+            "name": "EXA Segurança"
+          },
+          {
+            "name": "Fluid Light"
+          }
+        ]
+      }
+    },
+    "details": {
+      "beneficios": {
+        "name": "Benefícios",
+        "items": [
+          {
+            "name": "Aya Books",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-books-benefit.png"
+          },
+          {
+            "name": "Aya Ensinah Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-ensinah-premium-benefit.png"
+          },
+          {
+            "name": "EXA Segurança",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-seguranca-light-benefit.png"
+          },
+          {
+            "name": "Fluid Stand",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/fluid-light-benefit.png"
+          },
+          {
+            "name": "Bancah Premium + Jornais",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/bancah premium+jornais.png"
+          }
+        ]
+      },
+      "detalhes": {
+        "name": "Detalhes",
+        "items": [
+          {
+            "name": "Mapa do Brasil",
+            "title": "<strong class='font-weight-black'>Ligações ilimitadas</strong> para todas as perguntas usando o código 41",
+            "icon": "/img/logos/plan-details/brasil-icon.png"
+          },
+          {
+            "name": "SMS Ilimitado",
+            "title": "<strong class='font-weight-black'>SMS ilimitado</strong> para todas as operadoras usando o código 41",
+            "icon": "/img/logos/plan-details/sms-icon.png"
+          }
+        ]
+      },
+      "regulamento": {
+        "name": "Regulamentos",
+        "content": {
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/tim-digital-varejo-junho/tim-controle-1-0-30-06-2025.pdf"
+          },
+          "bonusfidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/tim-digital-varejo-junho/regulamento-desconto-tim-controle-12-meses-30-06-2025.pdf"
+          },
+          "bonuspromo": {
+            "name": "Regulamento Bônus Promo",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Digital-12-ate-30.05.25.pdf"
+          },
+          "bonusespecial": {
+            "name": "Regulamento Bônus especial",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Especial-Digital-12-ate-30.05.pdf"
+          }
+        }
+      }
+    }
+  },
+  "vtxtimdigitalcontrolepremium": {
+    "spotlight": true,
+    "sku": "vtxtimdigitalcontrolepremium",
+    "id": {
+      "base": "1-1QUUZFF",
+      "fidelity": "1-1QUUZFF",
+      "// idFidelityAttackDefence": {
+        "attack": "1-1QUUZFF",
+        "defense": "1-1QUUZFF"
+      }
+    },
+    "name": "TIM Controle Premium 1.0",
+    "segment": "controle",
+    "price": {
+      "base": 12299,
+      "fidelity": 8499,
+      "// priceFidelityAttackDefence": {
+        "attack": 8499,
+        "defense": 8499
+      },
+      "// priceBaseAttackDefence": {
+        "attack": 12299,
+        "defense": 12299
+      }
+    },
+    "franchise": {
+      "total": 34000,
+      "base": 30000,
+      "bonus": {
+        "redessociais": 5000,
+        "especial": 4000,
+        "pormesporumano": 6000
+      }
+    },
+    "description": {
+      "ligacao": "Ilimitadas para todas as operadoras",
+      "sms": "Ilimitado para todas as operadoras",
+      "roaming": "Roaming nacional",
+      "hero": "6GB Franquia + 4GB bônus + 4GB na portabilidade",
+      "rodape": "6GB Franquia + 4GB bônus extra + 4GB bônus extra trazendo seu número para a TIM",
+      "detalhes-exclusivos": "5GB exclusivos para Facebook, Instagram e X"
+    },
+    "vas": {
+      "inclusos": {
+        "title": "Apps inclusos",
+        "items": [
+          {
+            "name": "WhatsApp",
+            "title": "WhatsApp Incluso",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fnew-icon-whatsapp.png"
+          }
+        ]
+      },
+      "exclusivos": {
+        "items": [
+          {
+            "name": "Instagram",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fnew-icon-instagram.png"
+          },
+          {
+            "name": "Facebook",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Ffacebook.png"
+          },
+          {
+            "name": "Twitter",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fx-black.png"
+          }
+        ]
+      },
+      "escolha": {
+        "items": [
+          {
+            "name": "Amazon Prime",
+            "icon": "/img/logos/amazon-prime-icon.png"
+          },
+          {
+            "name": "Deezer Premium",
+            "icon": "/img/logos/deezer-premium-icon-preto.png"
+          },
+          {
+            "name": "Disney + Padrão com anúncios",
+            "icon": "/img/logos/disney-plus-icon.png"
+          },
+          {
+            "name": "Max Básico com anúncios",
+            "icon": "/img/logos/max-app-icon-mobile.png"
+          },
+          {
+            "name": "Netflix Padrão com anúncios",
+            "icon": "/img/logos/netflix-icon.png"
+          },
+          {
+            "name": "Globo Play",
+            "icon": "/img/logos/globoplay-icon.png"
+          },
+          {
+            "name": "Paramount +",
+            "icon": "/img/logos/paramount-plus-icon.png"
+          },
+          {
+            "name": "Youtube Premium",
+            "icon": "/img/logos/black/youtube-icon.png"
+          }
+        ]
+      },
+      "outros": {
+        "items": [
+          {
+            "name": "Aya Books + Aya Ensinah Premium"
+          },
+          {
+            "name": "Bancah Premium + Jornais"
+          },
+          {
+            "name": "EXA Segurança Light"
+          },
+          {
+            "name": "Fluid Light"
+          }
+        ]
+      }
+    },
+    "details": {
+      "beneficios": {
+        "name": "Benefícios",
+        "items": [
+          {
+            "name": "Aya Books",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-books-benefit.png"
+          },
+          {
+            "name": "Aya Ensinah Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-ensinah-premium-benefit.png"
+          },
+          {
+            "name": "Bancah Premium + Jornais",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/bancah premium+jornais.png"
+          },
+          {
+            "name": "EXA Segurança Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-seguranca-premium.png"
+          },
+          {
+            "name": "EXA Gestão Stand",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-gestao-stand-benefit.png"
+          }
+        ]
+      },
+      "detalhes": {
+        "name": "Detalhes",
+        "items": [
+          {
+            "name": "Mapa do Brasil",
+            "title": "<strong class='font-weight-black'>Ligações ilimitadas</strong> para todas as perguntas usando o código 41",
+            "icon": "/img/logos/plan-details/brasil-icon.png"
+          },
+          {
+            "name": "SMS Ilimitado",
+            "title": "<strong class='font-weight-black'>SMS ilimitado</strong> para todas as operadoras usando o código 41",
+            "icon": "/img/logos/plan-details/sms-icon.png"
+          }
+        ]
+      },
+      "regulamento": {
+        "name": "Regulamentos",
+        "content": {
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/tim-digital-varejo-junho/tim-controle-1-0-30-06-2025.pdf"
+          },
+          "bonusfidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/tim-digital-varejo-junho/regulamento-desconto-tim-controle-12-meses-30-06-2025.pdf"
+          },
+          "bonuspromo": {
+            "name": "Regulamento Bônus Promo",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Digital-12-ate-30.05.25.pdf"
+          },
+          "bonusespecial": {
+            "name": "Regulamento Bônus especial",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Especial-Digital-12-ate-30.05.pdf"
+          }
+        }
+      }
+    }
+  },
+  "vtxtimdigitalcontrolegigabexpress": {
+    "spotlight": true,
+    "sku": "vtxtimdigitalcontrolegigabexpress",
+    "id": "1-1LB0OUK",
+    "name": "TIM Controle Express J 7.1",
+    "segment": "express",
+    "price": 6099,
+    "franchise": {
+      "total": 25000,
+      "base": 5000,
+      "bonus": {
+        "pormesporumano": 20000
+      }
+    },
+    "description": {
+      "ligacao": "Ilimitadas para todas as operadoras",
+      "sms": "Ilimitado para TIM",
+      "roaming": "Roaming nacional",
+      "hero": "5GB Franquia + 4GB bônus",
+      "rodape": "5GB Franquia + 4GB bônus extra"
+    },
+    "vas": {
+      "mensagens": {
+        "items": [
+          {
+            "name": "WhatsApp",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fwhatsapp.png"
+          }
+        ]
+      },
+      "outros": {
+        "items": [
+          {
+            "name": "Aya Books + Ensinah Stand"
+          },
+          {
+            "name": "EXA Segurança Light"
+          },
+          {
+            "name": "Fluid Stand"
+          }
+        ]
+      }
+    },
+    "details": {
+      "beneficios": {
+        "name": "Benefícios",
+        "content": [
+          {
+            "name": "Aya Books",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-books-benefit.png"
+          },
+          {
+            "name": "Bancah Jornais II",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/banca-jornais-benefit.png"
+          },
+          {
+            "name": "Fluid Stand",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/fluid-light-benefit.png"
+          }
+        ]
+      },
+      "detalhes": {
+        "name": "Detalhes",
+        "content": [
+          {
+            "name": "Voz ilimitada local e LD com o CSP 41 (TIM-TIM e 100 SMSs TIM-Outras Operadoras);"
+          },
+          {
+            "name": "SMS ilimitado (TIM-TIM);"
+          },
+          {
+            "name": "Roaming Nacional ilimitado com o CSP 41;"
+          },
+          {
+            "name": "Mensagens Whatsapp e Messenger sem descontar da franquia, chamadas de Voz e Vídeo deverão ser descontadas da cota de dado;"
+          }
+        ]
+      },
+      "regulamento": {
+        "name": "Regulamentos",
+        "content": {
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/tim-digital-varejo-junho/tim-controle-b-express-7-2-30-06-2025.pdf"
+          },
+          "bonusfidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Desconto-TIM-Controle-12-Meses-31.05.2025-PUP.pdf"
+          },
+          "bonuspromo": {
+            "name": "Regulamento Bônus Promo",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Digital-12-ate-30.05.25.pdf"
+          },
+          "bonusespecial": {
+            "name": "Regulamento Bônus especial",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Especial-Digital-12-ate-30.05.pdf"
+          },
+          "sumary": {
+            "name": "Súmario do plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/TIM-Controle-B-Express-7.1-sumary-31.05.2025.pdf"
+          }
+        }
+      }
+    }
+  },
+  "vtxtimdigitalcontrolegigacexpress": {
+    "sku": "vtxtimdigitalcontrolegigacexpress",
+    "id": "1-1LB0R0W",
+    "name": "TIM Controle Express C 7.1",
+    "segment": "express",
+    "price": 6499,
+    "franchise": {
+      "total": 30000,
+      "base": 6000,
+      "bonus": {
+        "pormesporumano": 20000,
+        "especial": 6000
+      }
+    },
+    "description": {
+      "ligacao": "Ilimitadas para todas as operadoras",
+      "sms": "Ilimitado para TIM + 100 SMS para outras operadoras",
+      "roaming": "Roaming nacional",
+      "hero": "65GB Franquia + 4GB bônus",
+      "rodape": "65GB Franquia + 4GB bônus extra"
+    },
+    "vas": {
+      "mensagens": {
+        "items": [
+          {
+            "name": "WhatsApp",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset%2Fimage%2Ficons%2Fsocial%2Fquadrado%2Fappstore%2Fwhatsapp.png"
+          }
+        ]
+      },
+      "outros": {
+        "items": [
+          {
+            "name": "Aya Books + Ensinah Premium"
+          },
+          {
+            "name": "EXA Segurança Light"
+          },
+          {
+            "name": "Fluid Stand"
+          }
+        ]
+      }
+    },
+    "details": {
+      "beneficios": {
+        "name": "Benefícios",
+        "content": [
+          {
+            "name": "Aya Books",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-books-benefit.png"
+          },
+          {
+            "name": "Aya Ensinah Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-ensinah-premium-benefit.png"
+          },
+          {
+            "name": "Fluid Stand",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/fluid-light-benefit.png"
+          }
+        ]
+      },
+      "detalhes": {
+        "name": "Detalhes",
+        "content": [
+          {
+            "name": "Voz ilimitada local e LD com o CSP 41 (TIM-TIM e 100 SMSs TIM-Outras Operadoras);"
+          },
+          {
+            "name": "SMS ilimitado (TIM-TIM);"
+          },
+          {
+            "name": "Roaming Nacional ilimitado com o CSP 41;"
+          },
+          {
+            "name": "Mensagens Whatsapp e Messenger sem descontar da franquia, chamadas de Voz e Vídeo deverão ser descontadas da cota de dado;"
+          }
+        ]
+      },
+      "regulamento": {
+        "name": "Regulamentos",
+        "content": {
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/TIM-Controle-C-Express-7.1-31.05.2025.pdf"
+          },
+          "bonusfidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Desconto-TIM-Controle-12-Meses-31.05.2025-PUP.pdf"
+          },
+          "bonuspromo": {
+            "name": "Regulamento Bônus Promo",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Digital-12-ate-30.05.25.pdf"
+          },
+          "bonusespecial": {
+            "name": "Regulamento Bônus especial",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/Regulamento-Bonus-Promo-de-Internet-Especial-Digital-12-ate-30.05.pdf"
+          },
+          "sumary": {
+            "name": "Súmario do plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/controle/TIM-Controle-C-Express-7.1-sumary-31.05.2025.pdf"
+          }
+        }
+      }
+    }
+  },
+  "vtxtimdigitalcontroleaplus": {
+    "disabled": ["card"],
+    "sku": "vtxtimdigitalcontroleaplus",
+    "id": {
+      "base": "1-IL65OD",
+      "fidelity": "1-IL65OD",
+      "// idFidelityAttackDefence": {
+        "attack": "1-IL65OD",
+        "defense": "1-IL65OD"
+      }
+    },
+    "name": "TIM Controle Plus A",
+    "segment": "controle",
+    "price": {
+      "base": 7799,
+      "fidelity": 4499,
+      "// priceFidelityAttackDefence": {
+        "attack": 4499,
+        "defense": 4499
+      },
+      "// priceBaseAttackDefence": {
+        "attack": 7799,
+        "defense": 7799
+      }
+    },
+    "franchise": {
+      "total": 31500,
+      "base": 3500,
+      "bonus": {
+        "pormesporumano": 20000,
+        "especial": 8000
+      }
+    },
+    "description": {
+      "hero": "3,5GB Franquia + 20GB Promo + 8GB Especial",
+      "rodape": "3,5GB Franquia + 20GB Promo + 8GB Especial"
+    },
+    "vas": {
+      "mensagens": {
+        "items": [
+          {
+            "name": "WhatsApp",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset/image/icons/social/quadrado/appstore/whatsapp.png"
+          },
+          {
+            "name": "Facebook",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset/image/icons/social/quadrado/appstore/facebook.png"
+          },
+          {
+            "name": "Messenger",
+            "icon": "/firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/asset/image/icons/social/quadrado/appstore/messenger.png"
+          }
+        ]
+      },
+      "outros": {
+        "items": [
+          {
+            "name": "Aya Books"
+          },
+          {
+            "name": "Aya Ensinah Premium"
+          },
+          {
+            "name": "Bancah Jornais II"
+          },
+          {
+            "name": "Exa segurança Light"
+          },
+          {
+            "name": "Fluid Stand"
+          }
+        ]
+      }
+    },
+    "details": {
+      "beneficios": {
+        "name": "Benefícios",
+        "content": [],
+        "items": [
+          {
+            "name": "Aya Books",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-books-benefit.png"
+          },
+          {
+            "name": "Aya Ensinah Premium",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/aya-ensinah-premium-benefit.png"
+          },
+          {
+            "name": "Bancah Jornais II",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/banca-jornais-benefit.png"
+          },
+          {
+            "name": "Exa segurança Light",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/exa-seguranca-light-benefit.png"
+          },
+          {
+            "name": "Fluid Stand",
+            "icon": "https://www.cdn.vertexdigital.co/meuplanotim.com.br/beneficios/fluid-light-benefit.png"
+          }
+        ]
+      },
+      "detalhes": {
+        "name": "Detalhes",
+        "content": [
+          "incluso por 3 meses",
+          "Instagram",
+          "Facebook",
+          "Twitter",
+          "Apps inclusos",
+          "Messenger",
+          "WhatsApp",
+          "Outros benefícios",
+          "Aya Books + Aya Ensinah Premium",
+          "Bancah Jornais II",
+          "Exa Segurança"
+        ]
+      },
+      "regulamento": {
+        "name": "Regulamentos",
+        "content": {
+          "base": {
+            "name": "Regulamento do Plano",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/tim-digital-varejo-junho/tim-controle-a-plus-8-0-30-06-2025.pdf"
+          },
+          "bonusfidelizacao": {
+            "name": "Regulamento de Fidelização",
+            "link": "https://www.cdn.vertexdigital.co/regulamentos/meuplanotim.com.br/tim-digital-varejo-junho/regulamento-desconto-tim-controle-plus-12-meses-30-06-2025.pdf"
+          },
+          "bonus4gb": {
+            "name": "Regulamento Bônus 4GB",
+            "link": "https://firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/documents%2FAtualiza%C3%A7%C3%A3o%20regulamentos%20TIM%20-%20DIGITAL%2FRegulamento%20Bonus%204GB%20PortabilidadeRedes%20Sociais%20Fatura_3006.pdf?alt=media&token=d5fef4a0-8db8-4886-bcac-16c6346ca20d&_gl=1*wjn2i9*_ga*MTk3NzU4OTUzOC4xNjQ5MzM4NjA4*_ga_CW55HF8NVT*MTY4NTQ3NDkxMS41LjEuMTY4NTQ3NDk3Ni4wLjAuMA.."
+          },
+          "bonus20gb": {
+            "name": "Regulamento Bônus 20GB",
+            "link": "https://firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/documents%2FAtualiza%C3%A7%C3%A3o%20regulamentos%20TIM%20-%20DIGITAL%2FRegulamento%20Bonus%2020GB%20Redes%20Sociais%20e%20Smart%20Fatura_3006.pdf?alt=media&token=0c277aaa-14e3-4944-b52c-36885c85eba1&_gl=1*1m2snbm*_ga*MTk3NzU4OTUzOC4xNjQ5MzM4NjA4*_ga_CW55HF8NVT*MTY4NTQ3NDkxMS41LjEuMTY4NTQ3NDk4My4wLjAuMA.."
+          },
+          "sumary": {
+            "name": "Súmario do plano",
+            "link": "https://firebasestorage.googleapis.com/v0/b/meuplanotim-com-br.appspot.com/o/sumario%2Fwww-tim-com-br-para-voce-planos-controle-sumarios-tim-controle-smart_ok.pdf?alt=media&token=c24b47a4-4b56-453b-978a-d2730ea78a60"
+          }
+        }
+      }
+    }
+  }
+}

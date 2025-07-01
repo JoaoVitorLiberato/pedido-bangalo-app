@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "esim-meuplanotim"
+  },
+  "targets": {
+    "esim-meuplanotim": {
+      "hosting": {
+        "production": [
+          "esim-meuplanotim"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
