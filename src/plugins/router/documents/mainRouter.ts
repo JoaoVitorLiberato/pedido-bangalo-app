@@ -1,15 +1,15 @@
 export default [
   {
-    name: "homeview",
-    path: "/",
-    component: () => import("@/routes/mainRouter.vue"),
+    path: '/',
+    component: () => import('@/routes/mainRouter.vue'),
     children: [
       {
-        path: "",
+        path: '',
+        name: 'homeView',
         components: {
-          viewHero: () => import("@/views/viewHero.vue")
-        }
-      }
-    ]
-  }
+          ViewProducts: () => import('@/views/viewProducts.vue'),
+        },
+      },
+    ],
+  },
 ]

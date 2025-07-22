@@ -1,0 +1,22 @@
+{
+  "combinados": {
+    "text": "Combinado",
+    "icon": "🍱"
+  },
+  "sushis": {
+    "text": "Sushi",
+    "icon": "🍣"
+  },
+  "sashimis": {
+    "text": "Sashimi",
+    "icon": "🐟"
+  },
+  "temakis": {
+    "text": "Temaki",
+    "icon": "🌯"
+  },
+  "hot-rolls": {
+    "text": "Hot Roll",
+    "icon": "🔥"
+  }
+}

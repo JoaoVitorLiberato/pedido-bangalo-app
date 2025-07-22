@@ -1,8 +1,11 @@
 <template>
   <v-container
+    class="pa-0"
     fluid
   >
-    view Hero
+    <navbar-filter-products>
+      Produtos teste
+    </navbar-filter-products>
   </v-container>
 </template>
 

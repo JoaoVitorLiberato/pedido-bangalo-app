@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app'
 import { getAnalytics, logEvent, setUserProperties } from 'firebase/analytics'
-import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
+// import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
 
 const FIREBASE_CONFIG: FirebaseOptions = {
   apiKey: import.meta.env.VITE_APP_FIREBASE_API_KEY,
@@ -23,10 +23,10 @@ try {
   event('app_start')
   setUserProperties(ANALYTICS, { search: window.location.search })
 
-  initializeAppCheck(FIREBASE_APP, {
-    provider: new ReCaptchaV3Provider(import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY_V3),
-    isTokenAutoRefreshEnabled: true,
-  })
+  // initializeAppCheck(FIREBASE_APP, {
+  //   provider: new ReCaptchaV3Provider(import.meta.env.VITE_APP_RECAPTCHA_SITE_KEY_V3),
+  //   isTokenAutoRefreshEnabled: true,
+  // })
 } catch (error) {
   event('app_start', { error })
 }

@@ -1,9 +1,10 @@
 <template>
   <v-container
+    class="pa-0"
     fluid
   >
     <router-view
-      name="viewHero"
+      name="ViewProducts"
     />
   </v-container>
 </template>

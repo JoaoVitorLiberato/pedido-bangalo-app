@@ -16,7 +16,7 @@ import { defineConfig, loadEnv } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import URLS from './public/data/sitemap/urls.json'
 import CONTROLE_PORTIFOLIO from './src/data/planos/ControlePortifolioEsim.json'
-import { formatedPrice } from './src/helpers/formatedPrice.ts'
+import { formatedPrice } from './src/helpers/formatedPrice'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       Sitemap({
-        hostname: 'https://esim.meuplanotim.com.br',
+        hostname: env.VITE_APP_WEB_LINK,
         dynamicRoutes: (() => {
           const SITEMAP_URLS = []
 
@@ -54,7 +54,7 @@ export default defineConfig(({ mode }) => {
             const feedBuilder = new FeedBuilder();
             // https://github.com/xcommerceweb/google-merchant-feed
             feedBuilder.withTitle(env.VITE_APP_WEB_TITLE)
-            feedBuilder.withLink('https://esim.meuplanotim.com.br')
+            feedBuilder.withLink(env.VITE_APP_WEB_LINK)
             feedBuilder.withDescription(env.VITE_APP_WEB_DESCRIPTION)
 
             for (const {
@@ -67,7 +67,7 @@ export default defineConfig(({ mode }) => {
                 id: sku,
                 title: name,
                 description: description.rodape,
-                link: `https://esim.meuplanotim.com.br`,
+                link: env.VITE_APP_WEB_LINK,
                 // imageLink: images[0],
                 // additionalImageLinks: [images[1]],
                 condition: 'new',
@@ -78,13 +78,13 @@ export default defineConfig(({ mode }) => {
                 },
                 // https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt
                 googleProductCategory: '491',
-                productType: 'Página inicial > Planos TIM eSIM',
+                productType: 'Página inicial > Produtos de comida japonesa',
                 taxCategory: 'Planos TIM eSIM',
-                customLabels: ['Planos TIM eSIM', 'Planos TIM', 'TIM Controle', 'TIM Black', 'TIM Black Família'],
+                customLabels: ['Sushi', 'Comida japonesa', 'Comida japonesa com qualidade', 'Bangalo Sushi', 'Bangalô Sushi Lounge'],
                 identifierExists: 'no',
-                brand: 'timesim',
+                brand: 'bangalosushilounge',
                 ageGroup: 'adult',
-                externalSellerId: 'timesim',
+                externalSellerId: 'bangalosushilounge',
               });
             }
 
@@ -120,12 +120,12 @@ export default defineConfig(({ mode }) => {
           path: 'robots.txt',
           content: `User-agent: *
             Allow: /
-            Sitemap: https://esim.meuplanotim.com.br/sitemap.xml
-            Sitemap: https://esim.meuplanotim.com.br/googlemerchant.xml
-            Sitemap: https://esim.meuplanotim.com.br/manifest.json
-            Sitemap: https://esim.meuplanotim.com.br/robots.txt
-            Sitemap: https://esim.meuplanotim.com.br/googlemerchant.xml
-            Sitemap: https://esim.meuplanotim.com.br/sitemap.xml
+            Sitemap: ${env.VITE_APP_WEB_LINK}/sitemap.xml
+            Sitemap: ${env.VITE_APP_WEB_LINK}/googlemerchant.xml
+            Sitemap: ${env.VITE_APP_WEB_LINK}/manifest.json
+            Sitemap: ${env.VITE_APP_WEB_LINK}/robots.txt
+            Sitemap: ${env.VITE_APP_WEB_LINK}/googlemerchant.xml
+            Sitemap: ${env.VITE_APP_WEB_LINK}/sitemap.xml
           `,
         }),
         ...VERSION_MARK_CONFIG,
@@ -210,9 +210,9 @@ export default defineConfig(({ mode }) => {
     },
 
     server: {
-      port: 8080,
+      port: 8081,
       strictPort: true,
-      open: true,
+      open: false,
     },
 
     css: {
