@@ -1,22 +1,20 @@
 {
-  "combinados": {
-    "text": "Combinado",
+  "todascategorias": {
+    "icon": "🍽️"
+  },
+  "14aba43f-7d4b-4370-8211-8ebe4f891f0f": {
     "icon": "🍱"
   },
-  "sushis": {
-    "text": "Sushi",
+  "49ea0448-9959-4848-8a26-dc4afd0909bd": {
     "icon": "🍣"
   },
-  "sashimis": {
-    "text": "Sashimi",
+  "c9c626c0-dd69-45db-8b57-97d4a52eeba8": {
     "icon": "🐟"
   },
-  "temakis": {
-    "text": "Temaki",
+  "d8a20aa7-9956-4747-bfa7-c9b5593ffeea": {
     "icon": "🌯"
   },
-  "hot-rolls": {
-    "text": "Hot Roll",
+  "f221de73-d44b-4c8f-8d98-8061eb99f944": {
     "icon": "🔥"
   }
 }

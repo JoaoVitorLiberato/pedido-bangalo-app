@@ -162,9 +162,6 @@ export default defineConfig(({ mode }) => {
 
       Vuetify({
         autoImport: true,
-        styles: {
-          configFile: 'src/styles/settings.scss',
-        },
       }),
 
       Fonts({
