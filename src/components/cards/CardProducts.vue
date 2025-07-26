@@ -14,6 +14,9 @@
           :src="url ?? '/assets/produto-nao-encontrado.png'"
           height="224"
           cover
+          alt="Imagem do produto: {{ name }}"
+          role="img"
+          :aria-label="`Imagem do produto: ${name}`"
         >
           teste
         </v-img>
@@ -131,6 +134,8 @@
                   rounded="lg"
                   size="large"
                   @click="$emit('addToCart')"
+                  aria-label="Adicionar produto ao carrinho"
+                  tabindex="0"
                 >
                   <v-icon
                     color="#fff"

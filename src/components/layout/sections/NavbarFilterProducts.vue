@@ -3,6 +3,8 @@
     class="pa-0"
     fluid
     style="background-color:#fff"
+    role="main"
+    aria-label="Filtro e seleção de produtos"
   >
     <v-row
       class="mx-auto pa-4"
@@ -31,6 +33,7 @@
                 <h2
                   class="font-weight-bold"
                   :style="`font-size:${$vuetify.display.smAndDown ? 32 : 42}px`"
+                  id="pedido-heading"
                 >
                   Faça seu pedido
                 </h2>
@@ -62,6 +65,8 @@
               size="large"
               variant="flat"
               width="150"
+              aria-label="Abrir carrinho de produtos"
+              tabindex="0"
             >
               <v-badge
                 color="success"
@@ -116,6 +121,7 @@
                   append-inner-icon="search"
                   rounded="lg"
                   variant="outlined"
+                  aria-label="Campo de busca de produtos"
                 />
               </v-col>
 
@@ -149,6 +155,7 @@
                       <span
                         class="font-weight-black"
                         style="font-size: 26px;"
+                        id="categorias-heading"
                       >
                         Categorias
                       </span>
@@ -171,6 +178,9 @@
                           cols="12"
                           :class="`fix-panel-categories ${categorieSelected === id ? 'fix-apply-background' : ''} pa-4 my-1`"
                           @click="categorieSelected = id"
+                          role="button"
+                          :aria-label="`Selecionar categoria ${name}`"
+                          tabindex="0"
                         >
                           <v-row
                             no-gutters
