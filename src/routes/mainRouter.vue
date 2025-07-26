@@ -8,7 +8,3 @@
     />
   </v-container>
 </template>
-
-<script lang="ts">
-
-</script>

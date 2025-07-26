@@ -117,11 +117,14 @@
                 cols="12"
               >
                 <v-text-field
+                  v-model:model-value="inputSearchProduct"
                   placeholder="Pesquise o produto que você deseja"
-                  append-inner-icon="search"
+                  :append-inner-icon="getCacheFilterProducts.status ? 'close' : 'search'"
                   rounded="lg"
                   variant="outlined"
                   aria-label="Campo de busca de produtos"
+                  @update:model-value="updateInputSearch"
+                  @click:append-inner="clearInput()"
                 />
               </v-col>
 
@@ -177,7 +180,7 @@
                           :key="`categories-select-${id}`"
                           cols="12"
                           :class="`fix-panel-categories ${categorieSelected === id ? 'fix-apply-background' : ''} pa-4 my-1`"
-                          @click="categorieSelected = id"
+                          @click="categorieSelected = id, filterForCategories()"
                           role="button"
                           :aria-label="`Selecionar categoria ${name}`"
                           tabindex="0"
@@ -256,7 +259,7 @@
 </style>
 
 <script lang="ts" setup>
-  import { onMounted } from "vue";
+  import { onMounted, useTemplateRef } from "vue";
   import { storeToRefs } from "pinia"
 
   import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule"
@@ -274,11 +277,13 @@
   const {
     getCacheCategories,
     getCacheProducts,
+    getCacheFilterProducts
   } = storeToRefs(cacheStore)
 
   const icons = computed(() => DATA_IMAGES_CATEGORIES)
 
   const categorieSelected = ref("todascategorias")
+  const inputSearchProduct = ref("")
   const productCountedForProduct = ref({})
   const productCount = new Set()
 
@@ -302,6 +307,95 @@
 
     productCount.add({ "todascategorias": getCacheProducts.value.length })
     Object.assign(productCountedForProduct.value, ...productCount)
+  }
+
+  const updateInputSearch = (value:string): void => {
+    if (value === "" || value === undefined) {
+      cacheStore.setCacheFilterProduct({
+        status: false,
+        products: [],
+        error: false
+      })
+
+      return
+    }
+
+    const PRODUCT_FILTER_FOR_NAME = getCacheProducts.value
+      .filter((product) => {
+        if (
+          String(product.name)
+            .toLowerCase()
+              .includes(value.toLowerCase())
+        ) {
+          return product
+        }
+      })
+
+    if (
+      PRODUCT_FILTER_FOR_NAME === undefined ||
+      PRODUCT_FILTER_FOR_NAME.length <= 0
+    ) {
+      cacheStore.setCacheFilterProduct({
+        status: true,
+        products: PRODUCT_FILTER_FOR_NAME,
+        error: true
+      })
+
+      return
+    }
+
+    cacheStore.setCacheFilterProduct({
+      status: true,
+      products: PRODUCT_FILTER_FOR_NAME
+    })
+  }
+
+  const filterForCategories = (): void => {
+    if (String(categorieSelected.value) === "todascategorias") {
+      cacheStore.setCacheFilterProduct({
+        status: false,
+        products: [],
+        error: false
+      })
+
+      return
+    }
+
+    const PRODUCT_FILTER_FOR_CATEGORIES = getCacheProducts.value
+      .filter((product) => {
+        if (
+          String(product.category.id) === String(categorieSelected.value)
+        ) {
+          return product
+        }
+      })
+
+    if (
+      PRODUCT_FILTER_FOR_CATEGORIES === undefined ||
+      PRODUCT_FILTER_FOR_CATEGORIES.length <= 0
+    ) {
+      cacheStore.setCacheFilterProduct({
+        status: true,
+        products: PRODUCT_FILTER_FOR_CATEGORIES,
+        error: true
+      })
+
+      return
+    }
+
+    cacheStore.setCacheFilterProduct({
+      status: true,
+      products: PRODUCT_FILTER_FOR_CATEGORIES
+    })
+  }
+
+  const clearInput = (): void => {
+    inputSearchProduct.value = ""
+    cacheStore.setCacheFilterProduct({
+      status: false,
+      products: [],
+      error: false
+    })
   }
 
   onMounted(async() => {

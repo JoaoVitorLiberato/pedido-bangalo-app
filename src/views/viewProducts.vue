@@ -1,25 +1,18 @@
 <template>
-  <navbar-filter-products>
-    <v-container
-      class="pa-0"
-      fluid
-    >
-      <v-row
-        no-gutters
-      >
-        <v-col
-          v-for="product in getCacheProducts"
-          :key="`card-product-${product.id}`"
-          cols="12"
-          md="6"
-        >
-          <card-products
-            :data="product"
-          />
-        </v-col>
-      </v-row>
-    </v-container>
-  </navbar-filter-products>
+  <main
+    role="main"
+    aria-label="Página de produtos"
+  >
+    <navbar-filter-products>
+      <section-products-filtered
+        v-if="getCacheFilterProducts.status"
+      />
+
+      <section-products-all
+        v-else
+      />
+    </navbar-filter-products>
+  </main>
 </template>
 
 <script lang="ts" setup>
@@ -28,5 +21,5 @@
   import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule"
 
   const cacheStore = useCacheStore()
-  const { getCacheProducts } = storeToRefs(cacheStore)
+  const { getCacheFilterProducts } = storeToRefs(cacheStore)
 </script>
