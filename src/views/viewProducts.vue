@@ -12,6 +12,8 @@
         v-else
       />
     </navbar-filter-products>
+
+    <ComponentDialogComplement />
   </main>
 </template>
 

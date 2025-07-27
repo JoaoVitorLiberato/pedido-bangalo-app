@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CardProducts: typeof import('./../components/cards/CardProducts.vue')['default']
+    ComponentDialogComplement: typeof import('./../components/dialogs/system/ComponentDialogComplement.vue')['default']
     ErrorProductNotFound: typeof import('./../components/errors/ErrorProductNotFound.vue')['default']
     NavbarFilterProducts: typeof import('./../components/layout/sections/NavbarFilterProducts.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

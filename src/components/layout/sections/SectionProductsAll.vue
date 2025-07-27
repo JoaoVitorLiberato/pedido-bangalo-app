@@ -20,6 +20,7 @@
         >
           <card-products
             :data="product"
+            @add-to-cart="dialogStore.setDialogComplement(true)"
           />
         </v-col>
       </v-slide-y-transition>
@@ -41,7 +42,10 @@
   import { storeToRefs } from "pinia"
 
   import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule"
+  import { useDialogStore } from "@/plugins/stores/modules/dialogStoreModule"
 
   const cacheStore = useCacheStore()
   const { getCacheProducts } = storeToRefs(cacheStore)
+
+  const dialogStore = useDialogStore()
 </script>
