@@ -142,7 +142,7 @@
                 >
                   <v-row
                     no-gutters
-                    class="pa-4"
+                    class="pa-2 pa-md-4"
                   >
                     <v-col
                       cols="12"
@@ -176,14 +176,14 @@
                         no-gutters
                       >
                         <v-col
-                          v-for="({ id, name }) in getCacheCategories"
+                          v-for="({ id, name, icon }) in getCacheCategories"
                           :key="`categories-select-${id}`"
                           cols="12"
-                          :class="`fix-panel-categories ${categorieSelected === id ? 'fix-apply-background' : ''} pa-4 my-1`"
-                          @click="categorieSelected = id, filterForCategories()"
+                          :class="`fix-panel-categories ${categorieSelected === id ? 'fix-apply-background' : ''} pa-md-4 pa-3 my-1`"
                           role="button"
                           :aria-label="`Selecionar categoria ${name}`"
                           tabindex="0"
+                          @click="categorieSelected = id, filterForCategories(), scrollToSection()"
                         >
                           <v-row
                             no-gutters
@@ -195,7 +195,7 @@
                               <span
                                 style="font-size:32px"
                               >
-                                {{ icons[id as keyof typeof icons]?.icon }}
+                                {{ icon }}
                               </span>
                             </v-col>
 
@@ -213,12 +213,12 @@
                               cols="2"
                             >
                               <div
-                                :style="`max-width:45px;height:30px;border: 2px solid ${categorieSelected == id ? '#fff' : '#000'};border-radius:13px`"
+                                :style="`background-color:${categorieSelected == id ? '#ffffff42' : '#d500006e'};max-width:45px;height:30px;border: 2px solid ${categorieSelected == id ? '#fff' : '#fd7878'};border-radius:13px`"
                                 class="d-flex align-center justify-center"
                               >
                                 <span
                                   class="font-weight-bold"
-                                  :style="`font-size: 16px;color:${categorieSelected == id ? '#fff' : '#000'}`"
+                                  :style="`font-size: 16px;color:${categorieSelected == id ? '#fff' : '#c31313'}`"
                                 >
                                   {{ productCountedForProduct[id as keyof typeof productCountedForProduct] ?? 0 }}
                                 </span>
@@ -233,6 +233,11 @@
               </v-col>
             </v-row>
           </v-col>
+
+          <v-col
+            cols="12"
+            class="hidden-md-and-up py-10"
+          />
 
           <v-col
             cols="12"
@@ -265,7 +270,6 @@
   import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule"
   import { useCategoriesComposeble } from '@/composebles/useCategoriesComposeble';
   import type { ITypesCategories } from "@/types/categories"
-  import DATA_IMAGES_CATEGORIES from "@/data/categories/categories.json"
   import { useProductsComposeble } from "@/composebles/useProductsComposeble"
   import type { ITypesProducts } from "@/types/products"
 
@@ -279,8 +283,6 @@
     getCacheProducts,
     getCacheFilterProducts
   } = storeToRefs(cacheStore)
-
-  const icons = computed(() => DATA_IMAGES_CATEGORIES)
 
   const categorieSelected = ref("todascategorias")
   const inputSearchProduct = ref("")
@@ -307,6 +309,11 @@
 
     productCount.add({ "todascategorias": getCacheProducts.value.length })
     Object.assign(productCountedForProduct.value, ...productCount)
+  }
+
+  const scrollToSection = () => {
+    document.getElementById("product_section")
+      ?.scrollIntoView({ behavior: "smooth" })
   }
 
   const updateInputSearch = (value:string): void => {
@@ -407,7 +414,7 @@
     cacheStore.setCacheProducts(products as unknown as ITypesProducts[])
 
     const allCategories = [
-      { id: "todascategorias", name: "Todos" },
+      { id: "todascategorias", icon: "🍽️", name: "Todos" },
       ...categories as unknown as ITypesCategories[]
     ]
     cacheStore.setCacheCategories(allCategories)

@@ -24,3 +24,20 @@ export function formatedPrice (price: number|string|string[], type?: string): st
     return `R$ ${valorFinal}`
   }
 }
+
+export function getFinalPrice (price: {
+  default: number
+  discount: {
+    status: boolean,
+    percentage: number
+  }
+}): string|string[] {
+  let finalPrice = price.default
+
+  if (price.discount && price.discount.status) {
+    const discountPercentage = price.discount.percentage / 100
+    finalPrice = finalPrice * (1 - discountPercentage)
+  }
+
+  return formatedPrice(Math.round(finalPrice), ".")
+}

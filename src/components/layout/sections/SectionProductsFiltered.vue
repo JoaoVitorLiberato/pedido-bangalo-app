@@ -2,6 +2,7 @@
    <v-container
       class="pa-0"
       fluid
+      id="product_section"
     >
       <v-row
         no-gutters
@@ -10,7 +11,7 @@
           v-if="getCacheFilterProducts && getCacheFilterProducts.error"
           cols="12"
         >
-          error
+          <error-product-not-found />
         </v-col>
 
         <v-col

@@ -4,6 +4,7 @@
       fluid
     >
       <v-slide-y-transition
+        v-if="getCacheProducts.length > 0"
         class="py-0 d-flex flex-wrap"
         name="slide-y-reverse-transition"
         tag="v-row"
@@ -15,12 +16,17 @@
           :key="`card-product-${product.id}`"
           cols="12"
           md="6"
+          class="pa-0"
         >
           <card-products
             :data="product"
           />
         </v-col>
       </v-slide-y-transition>
+
+      <error-product-not-found
+        v-else
+      />
     </v-container>
 </template>
 

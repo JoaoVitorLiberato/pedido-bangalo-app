@@ -18,7 +18,67 @@
           role="img"
           :aria-label="`Imagem do produto: ${name}`"
         >
-          teste
+          <v-row
+            class="pa-2"
+            justify="space-between"
+            style="height: 100%;"
+          >
+            <v-col
+              cols="8"
+              md="7"
+            >
+              <v-chip
+                style="background: linear-gradient(135deg, #DC2626 0%, #F97316 50%, #FBBF24 100%)"
+                color="#000"
+                class="mr-2"
+                size="small"
+              >
+                <span>
+                  {{ category.icon }}
+                </span>
+
+                <span
+                  style="font-size: 12px;"
+                  class="font-weight-black ml-1 py-1"
+                >
+                  {{ category.name }}
+                </span>
+              </v-chip>
+
+              <v-chip
+                v-if="price.discount.status"
+                style="background-color: #DC2626;"
+                color="#ddd"
+                size="small"
+              >
+
+                <span
+                  style="font-size: 12px;"
+                  class="font-weight-black"
+                >
+                  -{{ price.discount.percentage }}%
+                </span>
+              </v-chip>
+            </v-col>
+
+            <v-col
+              cols="4"
+            >
+              <v-chip
+                color="#ddd"
+                size="small"
+              >
+                <v-rating
+                  :model-value="note_client"
+                  :length="5"
+                  density="compact"
+                  :size="16"
+                  disabled
+                  active-color="#FBBF24"
+                />
+              </v-chip>
+            </v-col>
+          </v-row>
         </v-img>
       </v-col>
 
@@ -85,7 +145,8 @@
               justify="space-between"
             >
               <v-col
-                cols="6"
+                cols="7"
+                md="6"
               >
                 <v-row
                   v-if="price"
@@ -95,12 +156,45 @@
                   <v-col
                     cols="12"
                   >
-                    <span
-                      style="font-size: 30px;color:#e72d00;"
-                      class="font-weight-black"
+                    <v-row
+                      no-gutters
                     >
-                      R$ {{ formatedPrice(price.default, ".") }}
-                    </span>
+                      <v-col
+                        v-if="price.discount.status"
+                        cols="12"
+                      >
+                        <span
+                          style="font-size: 13px;"
+                          class="d-block"
+                        >
+                          De
+                          <span
+                            style="text-decoration: line-through;"
+                          >
+                            R${{ formatedPrice(price.default, ".") }}
+                          </span> por
+                        </span>
+
+                        <span
+                          style="font-size: 30px;color:#e72d00;"
+                          class="font-weight-black"
+                        >
+                          R$ {{ getFinalPrice(price) }}
+                        </span>
+                      </v-col>
+
+                      <v-col
+                        v-else
+                        cols="12"
+                      >
+                        <span
+                          style="font-size: 30px;color:#e72d00;"
+                          class="font-weight-black"
+                        >
+                          R$ {{ formatedPrice(price.default, ".") }}
+                        </span>
+                      </v-col>
+                    </v-row>
                   </v-col>
 
                   <v-col
@@ -115,10 +209,16 @@
 
                     <span
                       style="font-size: 14px;color:grey;"
-                      class="font-weight-light"
+                      class="font-weight-light mr-2"
                     >
                       40-60 min
                     </span>
+
+                    <!-- <span
+                      style="font-size: 12px;color:red;"
+                    >
+                      -8%
+                    </span> -->
                   </v-col>
                 </v-row>
               </v-col>
@@ -170,7 +270,10 @@
 
 <script lang="ts" setup>
   import type { ITypesProducts } from '@/types/products';
-  import { formatedPrice } from '@/helpers/formatedPrice';
+  import {
+    formatedPrice,
+    getFinalPrice
+  } from '@/helpers/formatedPrice';
 
   defineEmits(["addToCart"])
 
@@ -183,6 +286,8 @@
       name,
       description,
       price,
+      note_client,
+      category,
       tumbnail: {
         url
       }

@@ -23,5 +23,6 @@ export interface ITypesProducts {
   category: {
     id: string;
     name: string;
+    icon: string;
   };
 }
