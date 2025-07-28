@@ -179,7 +179,7 @@
                           style="font-size: 30px;color:#e72d00;"
                           class="font-weight-black"
                         >
-                          R$ {{ getFinalPrice(price) }}
+                          R$ {{ formatedPrice(getFinalPrice(price), ".") }}
                         </span>
                       </v-col>
 

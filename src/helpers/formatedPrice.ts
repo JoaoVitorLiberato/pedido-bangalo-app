@@ -31,7 +31,7 @@ export function getFinalPrice (price: {
     status: boolean,
     percentage: number
   }
-}): string|string[] {
+}): number {
   let finalPrice = price.default
 
   if (price.discount && price.discount.status) {
@@ -39,5 +39,5 @@ export function getFinalPrice (price: {
     finalPrice = finalPrice * (1 - discountPercentage)
   }
 
-  return formatedPrice(Math.round(finalPrice), ".")
+  return Math.round(finalPrice)
 }

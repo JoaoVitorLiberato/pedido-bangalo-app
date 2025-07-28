@@ -20,7 +20,7 @@
         >
           <card-products
             :data="product"
-            @add-to-cart="dialogStore.setDialogComplement(true)"
+            @add-to-cart="cacheStore.setCacheItemId(product), dialogStore.setDialogComplement(true)"
           />
         </v-col>
       </v-slide-y-transition>
