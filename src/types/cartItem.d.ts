@@ -8,7 +8,7 @@ export interface ITypesItemsCart {
   total: number;
   differences: {
     status: boolean;
-    value: boolean;
+    value: number;
   };
   complements: ITypesComplements[];
 }

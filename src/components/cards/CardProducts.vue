@@ -19,6 +19,7 @@
           :aria-label="`Imagem do produto: ${name}`"
         >
           <v-row
+            no-gutters
             class="pa-2"
             justify="space-between"
             style="height: 100%;"
@@ -62,20 +63,31 @@
             </v-col>
 
             <v-col
-              cols="4"
+              cols="12"
+              class="d-flex justify-end align-end"
             >
               <v-chip
                 color="#ddd"
                 size="small"
+                class="d-flex align-center"
               >
-                <v-rating
-                  :model-value="note_client"
-                  :length="5"
-                  density="compact"
-                  :size="16"
-                  disabled
-                  active-color="#FBBF24"
-                />
+                <div>
+                  <v-rating
+                    :model-value="note_client"
+                    :length="5"
+                    density="compact"
+                    :size="16"
+                    disabled
+                    active-color="#FBBF24"
+                  />
+                </div>
+
+                <span
+                  style="font-size: 13px;"
+                  class="font-weight-medium ml-1"
+                >
+                  {{ note_client }}
+                </span>
               </v-chip>
             </v-col>
           </v-row>
@@ -213,12 +225,6 @@
                     >
                       40-60 min
                     </span>
-
-                    <!-- <span
-                      style="font-size: 12px;color:red;"
-                    >
-                      -8%
-                    </span> -->
                   </v-col>
                 </v-row>
               </v-col>
@@ -236,18 +242,11 @@
                   @click="$emit('addToCart')"
                   aria-label="Adicionar produto ao carrinho"
                   tabindex="0"
+                  block
                 >
-                  <v-icon
-                    color="#fff"
-                    class="mr-1"
-                    size="small"
-                  >
-                    add
-                  </v-icon>
-
                   <span
-                    class="font-weight-medium"
-                    style="color: #fff;font-size: 14px;"
+                    class="font-weight-bold"
+                    style="color: #000;font-size: 14px;"
                   >
                     Adicionar
                   </span>

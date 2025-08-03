@@ -8,8 +8,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ButtonCartComponent: typeof import('./../components/buttons/ButtonCartComponent.vue')['default']
     CardProducts: typeof import('./../components/cards/CardProducts.vue')['default']
     ComponentDialogComplement: typeof import('./../components/dialogs/system/ComponentDialogComplement.vue')['default']
+    DrawerCartComponent: typeof import('./../components/layout/cart/DrawerCartComponent.vue')['default']
     ErrorProductNotFound: typeof import('./../components/errors/ErrorProductNotFound.vue')['default']
     NavbarFilterProducts: typeof import('./../components/layout/sections/NavbarFilterProducts.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

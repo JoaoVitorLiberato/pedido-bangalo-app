@@ -17,6 +17,7 @@ export const useCacheStore = defineStore("cacheStoreModule", {
       error: false
     },
     cart: {
+      open: false,
       item: {} as ITypesProducts,
       data: [] as ITypesItemsCart[]
     }
@@ -28,6 +29,7 @@ export const useCacheStore = defineStore("cacheStoreModule", {
     getCacheFilterProducts: ({ filterProduct }) => filterProduct,
     getCacheItemId: ({ cart }) => cart.item,
     getCacheCart: ({ cart }) => cart.data,
+    getCacheOpenCart: ({ cart }) => cart.open,
   },
   actions: {
     setCacheCategories (data: ITypesCategories[]) {
@@ -54,6 +56,9 @@ export const useCacheStore = defineStore("cacheStoreModule", {
     setCacheItemId (data: ITypesProducts) {
       this.cart.item = data
     },
+    setCacheOpenCart (data: boolean) {
+      this.cart.open = data
+    },
     setCacheAddItemCart (items: {
       status: string,
       complements?: Array<ITypesComplements>
@@ -79,7 +84,7 @@ export const useCacheStore = defineStore("cacheStoreModule", {
           total: getFinalPrice(PRODUCT.price),
           differences: {
             status: PRODUCT.differences.flambed.status,
-            value: PRODUCT.differences.flambed.status
+            value: PRODUCT.differences.flambed.value
           },
           complements: items.complements ?? []
         }
@@ -89,9 +94,7 @@ export const useCacheStore = defineStore("cacheStoreModule", {
         } else this.cart.data.push(ITEM_CART)
 
         sessionStorage.setItem("items_cart", JSON.stringify(this.cart.data))
-      } catch {}
-
-      console.log()
+      } catch {/* empty */}
     }
   },
 })

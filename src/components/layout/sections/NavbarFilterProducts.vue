@@ -67,10 +67,11 @@
               width="150"
               aria-label="Abrir carrinho de produtos"
               tabindex="0"
+              @click="openCart = !openCart"
             >
               <v-badge
-                color="success"
-                content="3"
+                color="red"
+                :content="getCacheCart.length"
                 floating
                 class="d-flex align-center"
               >
@@ -281,7 +282,9 @@
   const {
     getCacheCategories,
     getCacheProducts,
-    getCacheFilterProducts
+    getCacheFilterProducts,
+    getCacheCart,
+    getCacheOpenCart
   } = storeToRefs(cacheStore)
 
   const categorieSelected = ref("todascategorias")
@@ -289,6 +292,10 @@
   const productCountedForProduct = ref({})
   const productCount = new Set()
 
+  const openCart = computed({
+    get: () => getCacheOpenCart.value,
+    set: (value) => cacheStore.setCacheOpenCart(value)
+  })
 
   const productsQtdForCategory = async(categoryId:string): Promise<void> => {
     let count = 0

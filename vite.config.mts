@@ -16,7 +16,6 @@ import { defineConfig, loadEnv } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import URLS from './public/data/sitemap/urls.json'
 import CONTROLE_PORTIFOLIO from './src/data/planos/ControlePortifolioEsim.json'
-import { formatedPrice } from './src/helpers/formatedPrice'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -68,13 +67,11 @@ export default defineConfig(({ mode }) => {
                 title: name,
                 description: description.rodape,
                 link: env.VITE_APP_WEB_LINK,
-                // imageLink: images[0],
-                // additionalImageLinks: [images[1]],
                 condition: 'new',
                 availability: 'in_stock',
                 price: {
                   currency: 'BRL',
-                  value: Number(formatedPrice((price as { fidelity: number }).fidelity, 'float')),
+                  value: Number(price.base).toFixed(2) as unknown as number,
                 },
                 // https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt
                 googleProductCategory: '491',
@@ -207,9 +204,7 @@ export default defineConfig(({ mode }) => {
     },
 
     server: {
-      port: 8081,
-      strictPort: true,
-      open: false,
+      port: 8080
     },
 
     css: {
