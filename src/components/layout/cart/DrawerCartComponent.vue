@@ -10,10 +10,22 @@
       title="Carrinho de produtos"
       subtitle="Aqui você pode escolher quanto produtos você quer e se vai excluir o produto do carrinho de pedidos."
     ></v-list-item>
-    <v-divider></v-divider>
-    <v-list-item link title="List Item 1"></v-list-item>
-    <v-list-item link title="List Item 2"></v-list-item>
-    <v-list-item link title="List Item 3"></v-list-item>
+
+    <v-divider />
+
+    <v-list
+      class="pa-1"
+    >
+      <v-list-item
+        v-for="(cart_item, index) in getCacheCart"
+        :key="`item-cart-${index}-${cart_item.name}`"
+        class="pa-0 my-2"
+      >
+        <card-cart-product
+          :item="cart_item"
+        />
+      </v-list-item>
+    </v-list>
   </v-navigation-drawer>
 </template>
 
@@ -24,7 +36,8 @@
   const cacheStore = useCacheStore()
 
   const {
-    getCacheOpenCart
+    getCacheOpenCart,
+    getCacheCart
   } = storeToRefs(cacheStore)
 
   const openCart = computed({

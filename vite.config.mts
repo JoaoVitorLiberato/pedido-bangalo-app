@@ -57,21 +57,30 @@ export default defineConfig(({ mode }) => {
             feedBuilder.withDescription(env.VITE_APP_WEB_DESCRIPTION)
 
             for (const {
-              sku,
+              id,
               name,
               description,
               price,
-            } of Object.values(CONTROLE_PORTIFOLIO)) {
+            } of [
+              {
+                id: "",
+                name: "",
+                description: "",
+                price: {
+                  value: 0,
+                },
+              },
+            ]) {
               feedBuilder.withProduct({
-                id: sku,
+                id: id,
                 title: name,
-                description: description.rodape,
+                description: description,
                 link: env.VITE_APP_WEB_LINK,
                 condition: 'new',
                 availability: 'in_stock',
                 price: {
                   currency: 'BRL',
-                  value: Number(price.base).toFixed(2) as unknown as number,
+                  value: Number(price.value),
                 },
                 // https://www.google.com/basepages/producttype/taxonomy-with-ids.pt-BR.txt
                 googleProductCategory: '491',

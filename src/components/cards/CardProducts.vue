@@ -188,7 +188,7 @@
                         </span>
 
                         <span
-                          style="font-size: 30px;color:#e72d00;"
+                          style="font-size: 23px;color:#e72d00;"
                           class="font-weight-black"
                         >
                           R$ {{ formatedPrice(getFinalPrice(price), ".") }}
@@ -200,7 +200,7 @@
                         cols="12"
                       >
                         <span
-                          style="font-size: 30px;color:#e72d00;"
+                          style="font-size: 23px;color:#e72d00;"
                           class="font-weight-black"
                         >
                           R$ {{ formatedPrice(price.default, ".") }}

@@ -13,7 +13,7 @@ export interface ITypesProducts {
     url: string;
   };
   differences: {
-    flambed: {
+    [key:string]: {
       readonly: boolean;
       status: boolean;
       value: number;

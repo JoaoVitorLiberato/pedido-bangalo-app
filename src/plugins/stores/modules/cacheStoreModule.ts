@@ -79,13 +79,10 @@ export const useCacheStore = defineStore("cacheStoreModule", {
         const ITEM_CART = {
           id: PRODUCT.id,
           name: PRODUCT.name,
-          price: getFinalPrice(PRODUCT.price),
+          price: PRODUCT.price,
           quantity: 1,
           total: getFinalPrice(PRODUCT.price),
-          differences: {
-            status: PRODUCT.differences.flambed.status,
-            value: PRODUCT.differences.flambed.value
-          },
+          differences: PRODUCT.differences,
           complements: items.complements ?? []
         }
 
