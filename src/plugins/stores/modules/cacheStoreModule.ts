@@ -1,6 +1,6 @@
 import { defineStore } from "pinia"
 
-import { getFinalPrice } from "@/helpers/formatedPrice"
+import { getPriceWithDiscount } from "@/helpers/formatedPrice"
 import type { ITypesProducts } from "@/types/products"
 import type { ITypesCategories } from "@/types/categories"
 import type { ITypesComplements } from "@/types/complement"
@@ -53,44 +53,60 @@ export const useCacheStore = defineStore("cacheStoreModule", {
         error: data.error ?? false
       }
     },
-    setCacheItemId (data: ITypesProducts) {
+    setCacheTempItemCart (data: ITypesProducts) {
       this.cart.item = data
     },
     setCacheOpenCart (data: boolean) {
       this.cart.open = data
     },
+    setCacheProductCartStorage () {
+      const ITEMS_CACHE_SESSION_STORAGE = sessionStorage.getItem("items_cart")
+
+      if (ITEMS_CACHE_SESSION_STORAGE) {
+        const ITEMS_CONVERTED = JSON.parse(ITEMS_CACHE_SESSION_STORAGE)
+        if (ITEMS_CONVERTED.length > 0 && this.cart.data.length === 0) {
+          this.cart.data = ITEMS_CONVERTED
+        }
+      }
+    },
     setCacheAddItemCart (items: {
       status: string,
+      update?:ITypesItemsCart[],
       complements?: Array<ITypesComplements>
     }) {
       try {
-        const ITEMS_CACHE_SESSION_STORAGE = sessionStorage.getItem("items_cart")
-
-        if (ITEMS_CACHE_SESSION_STORAGE) {
-          const ITEMS_CONVERTED = JSON.parse(ITEMS_CACHE_SESSION_STORAGE)
-          if (ITEMS_CONVERTED.length > 0 && this.cart.data.length === 0) {
-            this.cart.data = ITEMS_CONVERTED
-            if (/^(cacheCart)$/i.test(String(items.status))) throw new Error()
-          }
-        }
-
-        const PRODUCT = this.cart.item
-
-        const ITEM_CART = {
-          id: PRODUCT.id,
-          name: PRODUCT.name,
-          price: PRODUCT.price,
-          quantity: 1,
-          total: getFinalPrice(PRODUCT.price),
-          differences: PRODUCT.differences,
-          complements: items.complements ?? []
-        }
-
         if (/^(updateCart)$/i.test(String(items.status))) {
-          console.log("update a pensar...")
-        } else this.cart.data.push(ITEM_CART)
+          this.cart.data = items.update as ITypesItemsCart[]
+        } else {
+          const PRODUCT = this.cart.item
 
-        sessionStorage.setItem("items_cart", JSON.stringify(this.cart.data))
+          const ITEM_CART_FORMATED = {
+            id: PRODUCT.id,
+            name: PRODUCT.name,
+            price: PRODUCT.price,
+            quantity: 1,
+            total: getPriceWithDiscount(PRODUCT.price),
+            differences: PRODUCT.differences,
+            complements: items.complements ?? []
+          }
+
+          this.cart.data.push(ITEM_CART_FORMATED)
+
+          const ITEMS_CACHE_SESSION_STORAGE = sessionStorage.getItem("items_cart")
+
+          if (ITEMS_CACHE_SESSION_STORAGE) {
+            const ITEMS_CONVERTED = JSON.parse(ITEMS_CACHE_SESSION_STORAGE)
+            if (ITEMS_CONVERTED.length > 0 && this.cart.data.length === 0) {
+              this.cart.data = ITEMS_CONVERTED
+              sessionStorage.setItem("items_cart", JSON.stringify([
+                ...ITEMS_CONVERTED,
+
+              ]))
+            }
+          } else sessionStorage.setItem("items_cart", JSON.stringify(this.cart.data))
+        }
+
+
       } catch {/* empty */}
     }
   },

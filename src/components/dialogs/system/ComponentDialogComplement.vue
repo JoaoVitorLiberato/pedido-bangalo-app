@@ -176,7 +176,7 @@
   import { useDialogStore } from "@/plugins/stores/modules/dialogStoreModule"
   import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule";
   import type { ITypesComplements } from "@/types/complement";
-  import { useComplementsComposeble } from "@/composebles/useComplementsComposeble";
+  import { useComplementsComposeble } from "@/composebles/integrations/useComplementsComposeble";
   import { formatedPrice } from "@/helpers/formatedPrice";
 
   const complementsComposeble = new useComplementsComposeble()

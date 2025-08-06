@@ -145,6 +145,82 @@
 
           <v-col
             cols="12"
+          >
+            <v-row
+              no-gutters
+            >
+              <v-col
+                v-if="differences[Object.keys(differences)[0]]"
+                cols="12"
+              >
+                <v-switch
+                  v-model="differences[Object.keys(differences)[0]].status"
+                  hide-details
+                  color="success"
+                  :disabled="differences[Object.keys(differences)[0]].readonly"
+                  density="compact"
+                  @change="getPriceWithDifferencesActived(props.data)"
+                >
+                  <template v-slot:label>
+                    <span
+                      v-if="/flambed/i.test(String(Object.keys(differences)[0]))"
+                      class="font-weight-medium pl-2"
+                      style="font-size: 14px;"
+                    >
+                      Flambar produto
+                    </span>
+
+                    <span
+                      v-else-if="/breaded/i.test(String(Object.keys(differences)[0]))"
+                        class="font-weight-medium"
+                      style="font-size: 14px;"
+                    >
+                      Empanar produto
+                    </span>
+
+                    <span
+                      v-else-if="/especial/i.test(String(Object.keys(differences)[0]))"
+                      class="font-weight-medium"
+                      style="font-size: 14px;"
+                    >
+                      Produto especial
+                    </span>
+                  </template>
+                </v-switch>
+              </v-col>
+
+              <v-col
+                v-else
+                cols="12"
+                class="py-2"
+              >
+                <v-icon
+                  color="success"
+                  size="25"
+                >
+                  check_circle
+                </v-icon>
+
+                <span
+                  class="font-weight-medium"
+                  style="font-size: 16px;"
+                >
+                  Produto natural
+                </span>
+              </v-col>
+            </v-row>
+          </v-col>
+
+          <v-col
+            cols="12"
+          >
+            <v-divider
+              color="grey"
+            />
+          </v-col>
+
+          <v-col
+            cols="12"
             class="py-2"
           />
 
@@ -183,7 +259,7 @@
                           <span
                             style="text-decoration: line-through;"
                           >
-                            R${{ formatedPrice(price.default, ".") }}
+                            R${{ formatedPrice(getPriceWithDifferencesActived(props.data), ".") }}
                           </span> por
                         </span>
 
@@ -191,7 +267,7 @@
                           style="font-size: 23px;color:#e72d00;"
                           class="font-weight-black"
                         >
-                          R$ {{ formatedPrice(getFinalPrice(price), ".") }}
+                          R$ {{ formatedPrice(getPriceWithDiscount({ ...price, default: getPriceWithDifferencesActived(props.data) }), ".") }}
                         </span>
                       </v-col>
 
@@ -203,7 +279,7 @@
                           style="font-size: 23px;color:#e72d00;"
                           class="font-weight-black"
                         >
-                          R$ {{ formatedPrice(price.default, ".") }}
+                          R$ {{ formatedPrice(getPriceWithDifferencesActived(props.data), ".") }}
                         </span>
                       </v-col>
                     </v-row>
@@ -271,7 +347,8 @@
   import type { ITypesProducts } from '@/types/products';
   import {
     formatedPrice,
-    getFinalPrice
+    getPriceWithDiscount,
+    getPriceWithDifferencesActived,
   } from '@/helpers/formatedPrice';
 
   defineEmits(["addToCart"])
@@ -287,6 +364,7 @@
       price,
       note_client,
       category,
+      differences,
       tumbnail: {
         url
       }

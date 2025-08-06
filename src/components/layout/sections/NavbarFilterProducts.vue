@@ -269,9 +269,9 @@
   import { storeToRefs } from "pinia"
 
   import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule"
-  import { useCategoriesComposeble } from '@/composebles/useCategoriesComposeble';
+  import { useCategoriesComposeble } from '@/composebles/integrations/useCategoriesComposeble';
   import type { ITypesCategories } from "@/types/categories"
-  import { useProductsComposeble } from "@/composebles/useProductsComposeble"
+  import { useProductsComposeble } from "@/composebles/integrations/useProductsComposeble"
   import type { ITypesProducts } from "@/types/products"
 
   const cacheStore = useCacheStore()

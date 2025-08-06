@@ -93,6 +93,7 @@
               variant="text"
               color="error"
               block
+              @click="$emit('deleteProduct')"
             >
               <v-icon>
                 delete
@@ -122,7 +123,7 @@
               class="font-weight-bold"
               style="font-size: 17px;"
             >
-              {{ formatedPrice((item.total * item.quantity)) }}
+              {{ formatedPrice((item.total)) }}
             </span>
           </v-col>
 
@@ -142,6 +143,8 @@
                   variant="flat"
                   block
                   style="background: linear-gradient(135deg, #DC2626 0%, #F97316 50%, #FBBF24 100%)"
+                  :disabled="item.quantity <= 1"
+                  @click="item.quantity -= 1"
                 >
                   <v-icon
                     size="xs"
@@ -168,6 +171,7 @@
                   variant="flat"
                   block
                   style="background: linear-gradient(135deg, #DC2626 0%, #F97316 50%, #FBBF24 100%)"
+                  @click="item.quantity += 1"
                 >
                   <v-icon>
                     add
@@ -222,6 +226,8 @@
 <script lang="ts" setup>
   import type { ITypesItemsCart } from '@/types/cartItem';
   import { formatedPrice } from '@/helpers/formatedPrice';
+
+  defineEmits(["deleteProduct"])
 
   const { item } = defineProps<{
     item: ITypesItemsCart

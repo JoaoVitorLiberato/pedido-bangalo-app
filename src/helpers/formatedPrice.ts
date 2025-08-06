@@ -1,3 +1,5 @@
+import type { ITypesProducts } from "@/types/products"
+
 export function formatedPrice (price: number|string|string[], type?: string): string|string[] {
   if (price === undefined || null) return ''
   let valorFinal = ''
@@ -25,17 +27,37 @@ export function formatedPrice (price: number|string|string[], type?: string): st
   }
 }
 
-export function getFinalPrice (price: {
+export function getPriceWithDifferencesActived (p: ITypesProducts): number {
+  const DIFFERENCE = p.differences[Object.keys(p.differences)[0]]
+
+  const {
+    status,
+    value
+  } = DIFFERENCE ?? {}
+
+  if (status) {
+    return Number(p.price.default) + Number(value)
+  }
+
+  return Number(p.price.default)
+}
+
+export function getPriceWithDiscount (price: {
   default: number
   discount: {
     status: boolean,
     percentage: number
   }
 }): number {
-  let finalPrice = price.default
+  const {
+    default: priceUnit,
+    discount
+  } = price ?? {}
 
-  if (price.discount && price.discount.status) {
-    const discountPercentage = price.discount.percentage / 100
+  let finalPrice = priceUnit
+
+  if (discount && discount.status) {
+    const discountPercentage = discount.percentage / 100
     finalPrice = finalPrice * (1 - discountPercentage)
   }
 

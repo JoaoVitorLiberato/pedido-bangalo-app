@@ -6,26 +6,72 @@
     width="315"
     temporary
   >
-    <v-list-item
-      title="Carrinho de produtos"
-      subtitle="Aqui você pode escolher quanto produtos você quer e se vai excluir o produto do carrinho de pedidos."
-    ></v-list-item>
-
-    <v-divider />
-
-    <v-list
-      class="pa-1"
+    <v-row
+      no-gutters
     >
-      <v-list-item
-        v-for="(cart_item, index) in getCacheCart"
-        :key="`item-cart-${index}-${cart_item.name}`"
-        class="pa-0 my-2"
+      <v-col
+        v-if="getCacheCart.length > 0"
+        cols="12"
       >
-        <card-cart-product
-          :item="cart_item"
-        />
-      </v-list-item>
-    </v-list>
+        <v-list-item
+          title="Carrinho de produtos"
+          subtitle="Aqui você pode escolher quanto produtos você quer e se vai excluir o produto do carrinho de pedidos."
+        ></v-list-item>
+
+        <v-divider />
+
+        <v-list
+          class="pa-1"
+        >
+          <v-list-item
+            v-for="(cart_item, index) in getCacheCart"
+            :key="`item-cart-${index}-${cart_item.name}`"
+            class="pa-0 my-2"
+          >
+            <card-cart-product
+              :item="cart_item"
+              @deleteProduct="removeProductCart(index)"
+            />
+          </v-list-item>
+        </v-list>
+      </v-col>
+
+      <v-col
+        v-else
+        cols="12"
+        class="mt-10"
+      >
+        <v-row
+          no-gutters
+          justify="center"
+          align="center"
+          class="text-center"
+        >
+          <v-col
+            cols="12"
+          >
+            <v-icon
+              size="100"
+            >
+              no_food
+            </v-icon>
+          </v-col>
+
+          <v-col
+            cols="12"
+            class="py-3"
+          />
+
+          <v-col
+            cols="12"
+          >
+            <span>
+              O carrinho está sem produtos
+            </span>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
   </v-navigation-drawer>
 </template>
 
@@ -43,5 +89,27 @@
   const openCart = computed({
     get: () => getCacheOpenCart.value,
     set: (value) => cacheStore.setCacheOpenCart(value)
+  })
+
+  const PRODUCTS_CACHE_CART = computed({
+    get: () => getCacheCart.value,
+    set: (v) => cacheStore.setCacheAddItemCart({
+      status: "updateCart",
+      update: v
+    })
+  })
+
+  function removeProductCart (
+    index:number|string
+  ): void {
+    const CACHE_CART = PRODUCTS_CACHE_CART.value.filter((p, index_cache_cart) => {
+      if (index_cache_cart !== index) return p
+    })
+
+    PRODUCTS_CACHE_CART.value = CACHE_CART
+  }
+
+  onMounted(() => {
+    cacheStore.setCacheProductCartStorage()
   })
 </script>
