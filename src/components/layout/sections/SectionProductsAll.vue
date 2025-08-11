@@ -41,8 +41,8 @@
 <script lang="ts" setup>
   import { storeToRefs } from "pinia"
 
-  import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule"
-  import { useDialogStore } from "@/plugins/stores/modules/dialogStoreModule"
+  import { useCacheStore } from "@/plugins/store/modules/cacheStoreModule"
+  import { useDialogStore } from "@/plugins/store/modules/dialogStoreModule"
 
   const cacheStore = useCacheStore()
   const { getCacheProducts } = storeToRefs(cacheStore)

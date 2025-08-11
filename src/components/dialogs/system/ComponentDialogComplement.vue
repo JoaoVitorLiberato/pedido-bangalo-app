@@ -173,22 +173,26 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from "pinia";
-  import { useDialogStore } from "@/plugins/stores/modules/dialogStoreModule"
-  import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule";
+  import { useDialogStore } from "@/plugins/store/modules/dialogStoreModule"
+  import { useCacheStore } from "@/plugins/store/modules/cacheStoreModule";
   import type { ITypesComplements } from "@/types/complement";
   import { useComplementsComposeble } from "@/composebles/integrations/useComplementsComposeble";
   import { formatedPrice } from "@/helpers/formatedPrice";
+  import {
+    getPriceWithDiscount
+  } from "@/helpers/formatedPrice"
 
   const complementsComposeble = new useComplementsComposeble()
 
   const cacheStoreStore = useCacheStore()
   const {
-    getCacheComplements
+    getCacheComplements,
+    getCacheItemSelected
   } = storeToRefs(cacheStoreStore)
 
   const dialogStore = useDialogStore()
   const {
-    getDialogComplement
+    getDialogComplement,
   } = storeToRefs(dialogStore)
 
   const loadingComplements = ref(false)
@@ -223,10 +227,26 @@
   }
 
   const addItemToCart = (): void => {
+    const PRODUCT = getCacheItemSelected.value
+    const DIFFERENCE_ACTIVED = Object.keys(PRODUCT.differences)[0]
+    const PRICE_DIFFERENCE_ACTIVED =
+      PRODUCT.differences[DIFFERENCE_ACTIVED] &&
+        PRODUCT.differences[DIFFERENCE_ACTIVED]?.status ?
+          PRODUCT.differences[DIFFERENCE_ACTIVED].value : 0
+
     cacheStoreStore.setCacheAddItemCart({
       status: "add",
-      complements: complementSelected.value
+      item: {
+      id: PRODUCT.id,
+      name: PRODUCT.name,
+      differences: PRODUCT.differences,
+      complements: complementSelected.value,
+      quantity: 1,
+      price: PRODUCT.price,
+      total: Number(getPriceWithDiscount(PRODUCT.price)) + PRICE_DIFFERENCE_ACTIVED
+    }
     })
+
     dialogComplement.value = false
   }
 

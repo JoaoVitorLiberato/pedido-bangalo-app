@@ -124,6 +124,56 @@
           <v-col
             cols="12"
           >
+            <v-chip
+              v-if="differences[Object.keys(differences)[0]]?.status && /flambed/i.test(String(Object.keys(differences)[0]))"
+              color="error"
+              density="compact"
+              variant="tonal"
+              class="pa-2 mr-1"
+              style="font-size: 10px;"
+            >
+              Flambado
+            </v-chip>
+
+            <v-chip
+              v-else-if="differences[Object.keys(differences)[0]]?.status && /breaded/i.test(String(Object.keys(differences)[0]))"
+              color="orange-accent-4"
+              density="compact"
+              class="pa-2 mr-1"
+              style="font-size: 12px;"
+            >
+              Empanado
+            </v-chip>
+
+            <v-chip
+              v-else-if="differences[Object.keys(differences)[0]]?.status && /especial/i.test(String(Object.keys(differences)[0]))"
+              color="yellow-darken-3"
+              density="compact"
+              class="pa-2 mr-1"
+              style="font-size: 12px;"
+            >
+              Especial
+            </v-chip>
+
+            <v-chip
+              v-else
+              color="success"
+              density="compact"
+              class="pa-2 mr-1"
+              style="font-size: 12px;"
+            >
+              Natural
+            </v-chip>
+          </v-col>
+
+          <v-col
+            cols="12"
+            class="py-1"
+          />
+
+          <v-col
+            cols="12"
+          >
             <span
               style="color: grey;"
               v-text="description"

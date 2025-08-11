@@ -1,5 +1,5 @@
 import vuetify from '@/plugins/vuetify'
-import pinia from '@/plugins/stores'
+import pinia from '@/plugins/store'
 import router from '@/plugins/router'
 import '@/plugins/firebase'
 

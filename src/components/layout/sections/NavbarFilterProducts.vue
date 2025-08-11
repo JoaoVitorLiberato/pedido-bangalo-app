@@ -71,7 +71,7 @@
             >
               <v-badge
                 color="red"
-                :content="getCacheCart.length"
+                :content="getCacheCartItems.length"
                 floating
                 class="d-flex align-center"
               >
@@ -268,7 +268,7 @@
   import { onMounted, useTemplateRef } from "vue";
   import { storeToRefs } from "pinia"
 
-  import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule"
+  import { useCacheStore } from "@/plugins/store/modules/cacheStoreModule"
   import { useCategoriesComposeble } from '@/composebles/integrations/useCategoriesComposeble';
   import type { ITypesCategories } from "@/types/categories"
   import { useProductsComposeble } from "@/composebles/integrations/useProductsComposeble"
@@ -283,7 +283,7 @@
     getCacheCategories,
     getCacheProducts,
     getCacheFilterProducts,
-    getCacheCart,
+    getCacheCartItems,
     getCacheOpenCart
   } = storeToRefs(cacheStore)
 

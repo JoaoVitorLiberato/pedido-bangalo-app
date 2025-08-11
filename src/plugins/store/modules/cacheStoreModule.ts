@@ -1,6 +1,5 @@
 import { defineStore } from "pinia"
 
-import { getPriceWithDiscount } from "@/helpers/formatedPrice"
 import type { ITypesProducts } from "@/types/products"
 import type { ITypesCategories } from "@/types/categories"
 import type { ITypesComplements } from "@/types/complement"
@@ -27,8 +26,8 @@ export const useCacheStore = defineStore("cacheStoreModule", {
     getCacheProducts: ({ products }) => products,
     getCacheComplements: ({ complements }) => complements,
     getCacheFilterProducts: ({ filterProduct }) => filterProduct,
-    getCacheItemId: ({ cart }) => cart.item,
-    getCacheCart: ({ cart }) => cart.data,
+    getCacheItemSelected: ({ cart }) => cart.item,
+    getCacheCartItems: ({ cart }) => cart.data,
     getCacheOpenCart: ({ cart }) => cart.open,
   },
   actions: {
@@ -64,49 +63,33 @@ export const useCacheStore = defineStore("cacheStoreModule", {
 
       if (ITEMS_CACHE_SESSION_STORAGE) {
         const ITEMS_CONVERTED = JSON.parse(ITEMS_CACHE_SESSION_STORAGE)
-        if (ITEMS_CONVERTED.length > 0 && this.cart.data.length === 0) {
+        if (ITEMS_CONVERTED.length > 0) {
           this.cart.data = ITEMS_CONVERTED
         }
       }
     },
-    setCacheAddItemCart (items: {
+    setCacheAddItemCart (data: {
       status: string,
-      update?:ITypesItemsCart[],
-      complements?: Array<ITypesComplements>
+      item: Array<ITypesItemsCart>|ITypesItemsCart
     }) {
       try {
-        if (/^(updateCart)$/i.test(String(items.status))) {
-          this.cart.data = items.update as ITypesItemsCart[]
+        if (data.status === "update") {
+          this.cart.data = data.item as Array<ITypesItemsCart>
+          sessionStorage.setItem("items_cart", JSON.stringify(data.item as Array<ITypesItemsCart>))
         } else {
-          const PRODUCT = this.cart.item
-
-          const ITEM_CART_FORMATED = {
-            id: PRODUCT.id,
-            name: PRODUCT.name,
-            price: PRODUCT.price,
-            quantity: 1,
-            total: getPriceWithDiscount(PRODUCT.price),
-            differences: PRODUCT.differences,
-            complements: items.complements ?? []
-          }
-
-          this.cart.data.push(ITEM_CART_FORMATED)
-
+          this.cart.data.push(data.item as ITypesItemsCart)
           const ITEMS_CACHE_SESSION_STORAGE = sessionStorage.getItem("items_cart")
 
           if (ITEMS_CACHE_SESSION_STORAGE) {
             const ITEMS_CONVERTED = JSON.parse(ITEMS_CACHE_SESSION_STORAGE)
-            if (ITEMS_CONVERTED.length > 0 && this.cart.data.length === 0) {
-              this.cart.data = ITEMS_CONVERTED
+            if (ITEMS_CONVERTED.length > 0) {
               sessionStorage.setItem("items_cart", JSON.stringify([
                 ...ITEMS_CONVERTED,
-
+                data.item
               ]))
             }
           } else sessionStorage.setItem("items_cart", JSON.stringify(this.cart.data))
         }
-
-
       } catch {/* empty */}
     }
   },

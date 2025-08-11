@@ -13,7 +13,7 @@
   >
     <v-badge
       color="red"
-      :content="getCacheCart.length"
+      :content="getCacheCartItems.length"
       floating
       class="d-flex align-center"
     >
@@ -26,12 +26,12 @@
 
 <script lang="ts" setup>
   import { storeToRefs } from "pinia"
-  import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule"
+  import { useCacheStore } from "@/plugins/store/modules/cacheStoreModule"
 
   const cacheStore = useCacheStore()
 
   const {
-    getCacheCart,
+    getCacheCartItems,
     getCacheOpenCart
   } = storeToRefs(cacheStore)
 

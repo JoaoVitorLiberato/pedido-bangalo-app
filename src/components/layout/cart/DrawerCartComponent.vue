@@ -10,7 +10,7 @@
       no-gutters
     >
       <v-col
-        v-if="getCacheCart.length > 0"
+        v-if="getCacheCartItems.length > 0"
         cols="12"
       >
         <v-list-item
@@ -24,7 +24,7 @@
           class="pa-1"
         >
           <v-list-item
-            v-for="(cart_item, index) in getCacheCart"
+            v-for="(cart_item, index) in getCacheCartItems"
             :key="`item-cart-${index}-${cart_item.name}`"
             class="pa-0 my-2"
           >
@@ -76,14 +76,14 @@
 </template>
 
 <script lang="ts" setup>
-  import { useCacheStore } from "@/plugins/stores/modules/cacheStoreModule"
+  import { useCacheStore } from "@/plugins/store/modules/cacheStoreModule"
   import { storeToRefs } from "pinia"
 
   const cacheStore = useCacheStore()
 
   const {
     getCacheOpenCart,
-    getCacheCart
+    getCacheCartItems
   } = storeToRefs(cacheStore)
 
   const openCart = computed({
@@ -92,10 +92,10 @@
   })
 
   const PRODUCTS_CACHE_CART = computed({
-    get: () => getCacheCart.value,
+    get: () => getCacheCartItems.value,
     set: (v) => cacheStore.setCacheAddItemCart({
-      status: "updateCart",
-      update: v
+      status: "update",
+      item: v
     })
   })
 

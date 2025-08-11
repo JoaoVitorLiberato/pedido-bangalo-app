@@ -35,7 +35,7 @@
             cols="8"
           >
             <v-chip
-              v-if="/flambed/i.test(String(Object.keys(item.differences)[0]))"
+              v-if="item.differences[Object.keys(item.differences)[0]] && item.differences[Object.keys(item.differences)[0]].status && /flambed/i.test(String(Object.keys(item.differences)[0]))"
               color="error"
               density="compact"
               variant="tonal"
@@ -46,7 +46,7 @@
             </v-chip>
 
             <v-chip
-              v-else-if="/breaded/i.test(String(Object.keys(item.differences)[0]))"
+              v-else-if="item.differences[Object.keys(item.differences)[0]] && item.differences[Object.keys(item.differences)[0]].status && /breaded/i.test(String(Object.keys(item.differences)[0]))"
               color="orange-accent-4"
               density="compact"
               class="mr-1"
@@ -56,7 +56,7 @@
             </v-chip>
 
             <v-chip
-              v-else-if="/especial/i.test(String(Object.keys(item.differences)[0]))"
+              v-else-if="item.differences[Object.keys(item.differences)[0]] && item.differences[Object.keys(item.differences)[0]].status && /especial/i.test(String(Object.keys(item.differences)[0]))"
               color="yellow-darken-3"
               density="compact"
               class="mr-1"
